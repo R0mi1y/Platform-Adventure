@@ -251,12 +251,13 @@ class Game:
 
     def draw_menu(self, victory=None):
         screen.fill((30, 144, 255))  # blue
+        screen.blit("bg", (0, 0))
         screen.draw.text("Platform Adventure",
                          center=(WIDTH//2, 100),
-                         fontsize=72, color=(255, 255, 255))
+                         fontsize=72, color=(255, 51, 0))
         if victory is not None:
             txt = "Voce Venceu! :D" if victory else "Voce Perdeu! :("
-            col = (0, 255, 0) if victory else (255, 0, 0)
+            col = (0, 255, 0) if victory else (255, 50, 0)
             screen.draw.text(txt,
                              center=(WIDTH//2, 450),
                              fontsize=72, color=col)
@@ -264,18 +265,19 @@ class Game:
             screen.draw.filled_rect(
                 Rect(btn["pos"][0]-150,
                      btn["pos"][1]-20, 300, 40),
-                (255, 255, 255))
+                (255, 51, 0))
             screen.draw.text(btn["text"],
                              center=btn["pos"],
-                             color=(0, 0, 0),
+                             color=(255, 255, 255),
                              fontsize=32)
 
     def draw_game(self):
         music.set_volume(0.5)
         screen.fill((135, 206, 235))  # sky
+        screen.blit("bg", (0, 0))
         screen.draw.text(f"Level {self.level+1}",
                          center=(WIDTH//2, 30),
-                         fontsize=48, color=(255, 255, 255))
+                         fontsize=48, color=(255, 51, 0))
         for p in self.platforms:
             screen.draw.filled_rect(p, (139, 69, 19))
         screen.draw.filled_rect(self.goal, (255, 215, 0))
